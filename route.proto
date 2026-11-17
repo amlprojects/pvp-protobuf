@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "aml.pvpBridge";
+option java_outer_classname = "RouteProto";
+
+package route;
+
+service Route {
+  rpc PollInput(Observation) returns (Input) {}
+}
+
+message Observation {
+  float attackCooldown = 1;
+  float health = 2;
+  float yaw = 3;
+  float pitch = 4;
+}
+
+message Input {
+  bool forward = 1;
+  bool backward = 2;
+  bool left = 3;
+  bool right = 4;
+  bool jump = 5;
+  bool shift = 6;
+  bool sprint = 7;
+  float deltaYaw = 8;
+  float deltaPitch = 9;
+  bool attack = 10;
+}
